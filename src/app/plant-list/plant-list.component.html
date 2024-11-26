@@ -1,0 +1,42 @@
+<div class="home-container">
+    <header class="app-header">
+      <h1>Plant Care Assistant</h1>
+      <p>Personalized care for your plants starts here!</p>
+    </header>
+  
+    <section class="questionnaire">
+      <h2>Tell us about your plant</h2>
+      <form class="questionnaire-form">
+        <!-- Plant Name -->
+        <label for="plant-name">What is your plant's name? (Optional)</label>
+        <input type="text" id="plant-name" placeholder="e.g., Daisy, Fern">
+  
+        <!-- Plant Type -->
+        <label for="plant-type">What type of plant do you have?</label>
+        <select id="plant-type">
+          <option value="">-- Select Plant Type --</option>
+          <option value="succulent">Succulent</option>
+          <option value="herb">Herb</option>
+          <option value="flowering">Flowering Plant</option>
+          <option value="foliage">Foliage Plant</option>
+          <option value="tree">Small Tree</option>
+        </select>
+  
+        <!-- Watering Frequency
+        <label for="watering-frequency">
+          How often does your plant need watering? (Approximate)
+        </label>
+        <select id="watering-frequency">
+          <option value="">-- Select Frequency --</option>
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="biweekly">Every 2 Weeks</option>
+          <option value="monthly">Once a Month</option>
+        </select> -->
+  
+        <!-- Submit Button -->
+        <button type="button" class="submit-btn" (click)="navigateToTaskReminder()">Save Plant Details</button>
+    </form>
+    </section>
+  </div>
+  

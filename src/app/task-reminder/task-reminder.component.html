@@ -1,0 +1,66 @@
+<div class="task-container">
+    <h1>🌱 Grow Better with Plant Task Reminder! 🌟</h1>
+    <p class="subtitle">Keep your plants thriving while building your streak!</p>
+  
+    <!-- Form to add task -->
+    <form (ngSubmit)="addTask()" class="task-form">
+      <label for="taskName">Task Name:</label>
+      <input
+        type="text"
+        id="taskName"
+        [(ngModel)]="taskName"
+        name="taskName"
+        placeholder="e.g., Water the Aloe Vera"
+        required
+      />
+  
+      <label for="taskFrequency">Task Frequency:</label>
+      <input
+        type="text"
+        id="taskFrequency"
+        [(ngModel)]="taskFrequency"
+        name="taskFrequency"
+        placeholder="e.g., Daily, Weekly"
+        required
+      />
+  
+      <label for="taskTime">Task Time (HH:MM):</label>
+      <input type="time" id="taskTime" [(ngModel)]="taskTime" name="taskTime" required />
+  
+      <button type="submit" class="btn-primary">➕ Add Task</button>
+    </form>
+  
+    <!-- Countdown Display -->
+    <div *ngIf="countdownText" class="countdown">
+      <h3>⏳ Time Left: {{ countdownText }}</h3>
+    </div>
+  
+    <!-- Reminder Message Display -->
+    <div *ngIf="showReminderMessage" class="reminder-message">
+      <p class="reminder-text">🌟 {{ reminderMessage }}</p>
+      <button class="btn-done" (click)="clearReminder()">✅ Done Task</button>
+    </div>
+  
+    <!-- Task List -->
+    <div class="task-list" *ngIf="tasks.length > 0">
+      <h2>Your Tasks</h2>
+      <ul>
+        <li *ngFor="let task of tasks">
+          <div class="task-item">
+            <span>🌿 <strong>{{ task.name }}</strong> (Time: {{ task.time }})</span>
+            <div>
+              <button class="btn-delete" (click)="deleteTask(task)">🗑 Delete</button>
+              <button class="btn-done" (click)="doneTask(task)">✅ Done</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Streak Display -->
+    <div class="streak-container">
+      <h2>🔥 Task Streak: {{ streak }}</h2>
+      <p class="motivation">You're building great habits! Keep going! 💪</p>
+    </div>
+  </div>
+  
